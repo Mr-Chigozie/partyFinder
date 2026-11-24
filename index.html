@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d0b14">
+  <title>Party Finder</title>
+  <meta name="description" content="Find parties, lounges, concerts and hangouts happening tonight, and the people going.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <div id="auth-root" hidden></div>
+
+  <div id="app" hidden>
+    <header class="topbar">
+      <div class="brand"><span class="logo">◉</span> Party Finder</div>
+      <div class="topbar-right">
+        <button class="loc-btn" data-action="locate" title="Use my location">📍 <span id="loc-label">Wuse 2</span></button>
+        <button class="me-btn" data-action="menu" aria-label="Account menu"><span id="me-initial">Y</span></button>
+        <div id="menu" class="menu" hidden>
+          <p class="menu-name" id="menu-name"></p>
+          <button data-action="edit-vibe">✨ Edit my vibe</button>
+          <button data-action="logout">↩ Log out</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="view"></div>
+      <div id="map-view" hidden><div id="map"></div></div>
+    </main>
+
+    <nav class="tabbar" aria-label="Main">
+      <button data-nav="tonight"><span>🌙</span>Tonight</button>
+      <button data-nav="map"><span>🗺</span>Vibe Map</button>
+      <button data-nav="plans"><span>💬</span>Plans</button>
+      <button data-nav="crews"><span>👯</span>Crews</button>
+    </nav>
+
+    <div id="sheet" hidden></div>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
